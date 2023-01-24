@@ -12,6 +12,7 @@ use Yii;
  * @property string $description
  * @property int $count
  * @property int|null $category_id
+ * @property string|null $main_photo_path
  *
  * @property Category $category
  */
@@ -31,11 +32,11 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'description', 'count', 'category_id'], 'required'],
+            [['title', 'description', 'count'], 'required'],
             [['description'], 'string'],
             [['count', 'category_id'], 'integer'],
-            [['title'], 'string', 'max' => 65],
-            [['category_id'], 'exist', 'skipOnError' => false, 'targetClass' => Category::class, 'targetAttribute' => ['category_id' => 'id']],
+            [['title', 'main_photo_path'], 'string', 'max' => 65],
+            [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::class, 'targetAttribute' => ['category_id' => 'id']],
         ];
     }
 
@@ -50,6 +51,7 @@ class Product extends \yii\db\ActiveRecord
             'description' => 'Description',
             'count' => 'Count',
             'category_id' => 'Category ID',
+            'main_photo_path' => 'Main Photo Path',
         ];
     }
 
