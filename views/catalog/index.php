@@ -28,12 +28,9 @@ $this->title = 'Каталог';
 
             //Создаём карточку товара, которая помещается в переменную $card.
             $card = '<div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="'. Yii::getAlias('@img/Products/'). $model->main_photo_path .'" alt="Card image cap">
-                        <div class="card-body"> 
-                            <h5 class="card-title">'.Html::a(Html::encode($model->title), ['view', 'id' => $model->id]).'</h5>
-                            <p class="card-text">'.$model->description.'</p>
-                            <p class="card-text">'. $model->category->title .'</p>
-                        </div>
+                        <img class="card-img-top card-image" src="'. Yii::getAlias('@img/Products/'). $model->main_photo_path .'" alt="Card image cap">
+                            <p class="card-title">'.Html::a(Html::encode($model->title), ['view', 'id' => $model->id]).'</p>
+                            <p class="card-category">'. $model->category->title .'</p>                        
                     </div>';
 
             //Выводим карточку товара

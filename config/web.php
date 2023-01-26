@@ -12,6 +12,7 @@ $config = [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
+        '@img' => '/images', // добавили алиас для папки с картинками
     ],
     'components' => [
         'request' => [
