@@ -14,9 +14,10 @@ a:hover{
     padding: 39px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
     border-radius: 19px;
+    margin-bottom: 20px;
 }
 .card-image{
-    max-height: 163px;
+    height: 163px;
 }
 .card-title{
     font-weight: 700;
@@ -30,8 +31,90 @@ a:hover{
     font-weight: 300;
     font-size: 17px;
     line-height: 20px;
-    /* identical to box height */
-
+    margin-bottom: 0;
 
     color: #000000;
+}
+
+.count{
+    display: flex;
+    margin-top: 36px;
+    margin-bottom: 36px;
+}
+.count__field{
+    border: 1px solid #B1B1B1;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 95%;
+}
+
+.minus,.plus{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: #FF0000;
+}
+.minus{
+    background-color: #FF0000;
+}
+.minus__figure:after{
+    display: block;
+    position: absolute;
+    content: '';
+    background-color: #000;
+    width: 34px;
+    height: 3px;
+    left: 3.5px;
+    top: 18px;
+}
+.minus__figure:after{
+    bottom: 16px;
+}
+
+
+.plus{
+    background-color: #00FF38;
+}
+.plus__figure:before,
+.plus__figure:after{
+    display: block;
+    position: absolute;
+    content: '';
+    background-color: #000;
+    width: 34px;
+    height: 3px;
+    left: 3.5px;
+    top: 18px;
+}
+.plus__figure:before{
+    transform: rotate(90deg)
+}
+.plus__figure:after{
+    bottom: 16px;
+ }
+
+.card__add{
+    background-color: #1FC0FF;
+    text-align:center;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 29px;
+    text-transform: uppercase;
+}
+.card__not-stock{
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 29px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 112px;
+}
+.item{
+
 }

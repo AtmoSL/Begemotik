@@ -21,17 +21,49 @@ $this->title = 'Каталог';
 
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
-        'layout' => '{pager}<div class="">{items}</div>{pager}',
-        'itemOptions' => ['class' => 'item'],
+        'layout' => '{pager}<div class="row">{items}</div>{pager}',
+        'itemOptions' => ['class' => 'item col-sm-4'],
         'itemView' => function ($model, $key, $index, $widget) {
         //$item = Html::a(Html::encode($model->title), ['view', 'id' => $model->id]);
 
+            $card_stock= ($model->count>0) ? '<div class="count">
+                                                    <div class="count__figure">
+                                                        <div class="minus">
+                                                            <span class="minus__figure"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="count__field">
+                                                    1
+                                                    </div>
+                                                    <div class="count__figure">
+                                                        <div class="plus">
+                                                            <span class="plus__figure"></span>
+                                                        </div>
+                                                    </div>
+                                               </div>
+                                               <div class="card__add">
+                                                   В корзину
+                                               </div>' : '
+                                               <div class="card__not-stock">
+                                                    Нет в наличиии
+                                                </div>
+                                                
+                                               ';
+
             //Создаём карточку товара, которая помещается в переменную $card.
-            $card = '<div class="card" style="width: 18rem;">
+            $card = '
+                    <div class="card" style="width: 18rem;">
                         <img class="card-img-top card-image" src="'. Yii::getAlias('@img/Products/'). $model->main_photo_path .'" alt="Card image cap">
+                          
                             <p class="card-title">'.Html::a(Html::encode($model->title), ['view', 'id' => $model->id]).'</p>
-                            <p class="card-category">'. $model->category->title .'</p>                        
-                    </div>';
+                            <p class="card-category">'. $model->category->title .'</p>  
+                            
+                            '.$card_stock.'
+                            
+                             
+                                               
+                    </div>
+                    ';
 
             //Выводим карточку товара
             return $card;
@@ -39,5 +71,8 @@ $this->title = 'Каталог';
     ]) ?>
 
     <?php Pjax::end(); ?>
+
+
+
 
 </div>
