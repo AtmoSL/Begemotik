@@ -27,6 +27,7 @@ $this->title = 'Каталог';
         'itemView' => function ($model, $key, $index, $widget) {
             //$item = Html::a(Html::encode($model->title), ['view', 'id' => $model->id]);
 
+            //Генерация блока "В наличии", если количество товаров больше 0 и "Нет в наличии", если товаров 0
             $card_stock = ($model->count > 0) ? '<div class="count">
                                                     <div class="count__figure">
                                                         <div class="minus">
@@ -65,8 +66,6 @@ $this->title = 'Каталог';
                                                
                     </div>
                     ';
-
-            var_dump($card);
             //Выводим карточку товара
             return $card;
         },
