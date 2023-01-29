@@ -6,6 +6,7 @@ use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\widgets\ListView;
 use yii\widgets\Pjax;
+
 /** @var yii\web\View $this */
 /** @var app\models\ProductSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
@@ -22,11 +23,11 @@ $this->title = 'Каталог';
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
         'layout' => '{pager}<div class="row">{items}</div>{pager}',
-        'itemOptions' => ['class' => 'item col-sm-4'],
+        'itemOptions' => ['class' => 'item col-4'],
         'itemView' => function ($model, $key, $index, $widget) {
-        //$item = Html::a(Html::encode($model->title), ['view', 'id' => $model->id]);
+            //$item = Html::a(Html::encode($model->title), ['view', 'id' => $model->id]);
 
-            $card_stock= ($model->count>0) ? '<div class="count">
+            $card_stock = ($model->count > 0) ? '<div class="count">
                                                     <div class="count__figure">
                                                         <div class="minus">
                                                             <span class="minus__figure"></span>
@@ -53,23 +54,23 @@ $this->title = 'Каталог';
             //Создаём карточку товара, которая помещается в переменную $card.
             $card = '
                     <div class="card" style="width: 18rem;">
-                        <img class="card-img-top card-image" src="'. Yii::getAlias('@img/Products/'). $model->main_photo_path .'" alt="Card image cap">
+                        <img class="card-img-top card-image" src="' . Yii::getAlias('@img/Products/') . $model->main_photo_path . '" alt="Card image cap">
                           
-                            <p class="card-title">'.Html::a(Html::encode($model->title), ['view', 'id' => $model->id]).'</p>
-                            <p class="card-category">'. $model->category->title .'</p>  
+                            <p class="card-title">' . Html::a(Html::encode($model->title), ['view', 'id' => $model->id]) . '</p>
+                            <p class="card-category">' . $model->category->title . '</p>  
                             
-                            '.$card_stock.'
+                            ' . $card_stock . '
                             
                              
                                                
                     </div>
                     ';
 
+            var_dump($card);
             //Выводим карточку товара
             return $card;
         },
     ]) ?>
-
     <?php Pjax::end(); ?>
 
 
