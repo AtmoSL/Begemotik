@@ -36,7 +36,21 @@ class CatalogController extends Controller
      *
      * @return string
      */
+
+    //Главная страница 
     public function actionIndex()
+    {
+        $searchModel = new ProductSearch();
+        $dataProvider = $searchModel->searchTopFive($this->request->get());
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    //Каталог
+    public function actionCatelog()
     {
         $searchModel = new ProductSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);

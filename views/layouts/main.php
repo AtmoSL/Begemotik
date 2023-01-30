@@ -39,7 +39,8 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav ml-auto'],
         'items' => [
-            ['label' => 'Каталог', 'url' => ['/catalog/index']],
+            ['label' => 'Главная', 'url' => ['/catalog/index']],
+            ['label' => 'Каталог', 'url' => ['/catalog/catalog']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Вход', 'url' => ['/site/login']]
             ) : (
